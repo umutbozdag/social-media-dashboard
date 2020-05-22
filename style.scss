@@ -1,0 +1,352 @@
+$green: hsl(163, 72%, 41%);
+$red: hsl(356, 69%, 56%);
+
+$facebook: hsl(208, 92%, 53%);
+$twitter: hsl(203, 89%, 53%);
+$instagram: linear-gradient(hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+$youtube: hsl(348, 97%, 39%);
+
+$dark-toggle: linear-gradient(hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+$light-toggle: linear-gradient(hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+
+$light-bg: hsl(0, 0%, 100%);
+$light-header-bg:  hsl(225, 100%, 98%);
+$light-card-bg: hsl(227, 47%, 96%);
+$light-text: hsl(228, 12%, 44%);
+$light-text2: hsl(230, 17%, 14%);
+
+$dark-bg: hsl(230, 17%, 14%);
+$dark-header-bg:  hsl(232, 19%, 15%);
+$dark-card-bg: hsl(228, 28%, 20%);
+$dark-text: hsl(228, 34%, 66%);
+$dark-text2:hsl(0, 0%, 100%);
+
+body {
+    font-family: 'Inter', sanres-serif;
+    margin: 0;
+    padding: 0;
+    h1 {
+        margin: 0;
+    }
+    p {
+        margin: 0;
+    }
+}
+
+.app-wrapper {
+    height: 100vh;
+    .header-wrapper  {
+      .header {
+        padding: 40px 248px 170px;
+        display: flex;
+        align-items: center;
+        background: $light-header-bg;
+        justify-content: space-between;
+        .left {
+          h1 {
+            margin-bottom: 12px;
+          }
+          p {
+            color: $light-text;
+            font-weight: 700;
+          }
+        }
+        .right {
+          display: flex;
+          align-items: center;
+          span {
+            color: $light-text;
+          }
+        }
+      }
+    }
+
+    .cards-big-wrapper {
+      padding: 0 248px;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      bottom: 120px;
+      .card-big {
+        height: 250px;
+        width: 300px;
+        background: $light-card-bg;
+        margin-bottom: 12px;
+        margin-right: 12px;
+        cursor: pointer;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &:hover {
+          background: hsl(227, 23%, 92%);
+        }
+        &.facebook {
+          border-top: 3px solid $facebook;
+        }
+        &.twitter {
+          border-top: 3px solid $twitter;
+        }
+        &.instagram {
+          border-top: 3px solid hsl(313, 53%, 51%);
+        }
+        &.youtube {
+          border-top: 3px solid $youtube;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+
+        .card-name {
+          margin-top: 26px;
+          display: flex;
+          align-items: center;
+          .card-user {
+            margin-left: 8px;
+            font-weight: 700;
+            color: $light-text;
+          }
+        }
+        .card-followers {
+          margin-top: 24px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-self: center;
+          .followers-title {
+            font-weight: 700;
+            font-size: 70px;
+          }
+          .followers-text {
+            text-align: center;
+            font-size: 18px;
+            color: $light-text;
+            letter-spacing: 6px;
+          }
+        }
+        .card-change {
+          margin-top: 24px;
+          display: flex;
+          align-items: center;
+          span {
+            margin-left: 4px;
+          }
+          .card-user {
+          }
+          &.positive {
+            color: $green;
+            font-weight: 700;
+          }
+          &.negative {
+            color: $red;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    .overview-section {
+      padding: 0 248px;
+      margin-top: -100px;
+      .overview-title {
+        font-size: 24px;
+        color: $light-text;
+      }
+      .overview-cards-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 24px;
+        .overview-card {
+          background: $light-card-bg;
+          border-radius: 4px;
+          padding: 10px 30px;
+          cursor: pointer;
+          &:hover {
+            background: hsl(227, 23%, 92%);
+          }
+          .overview-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h3 {
+              color: $light-text;
+            }
+          }
+
+          .overview-card-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h2 {
+              font-size: 28px;
+            }
+            .positive {
+              display: flex;
+              align-items: center;
+              span {
+                margin-left: 4px;
+                font-weight: 700;
+                color: $green;
+              }
+            }
+            .negative {
+              span {
+                color: $red;
+              }
+            }
+          }
+        }
+      }
+    }
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  outline: none;
+  height: 25px;
+  margin-left: 12px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $light-text;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background: linear-gradient(90deg, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+  }
+  
+  input:focus + .slider {
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(29px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+}
+
+
+.theme-dark {
+  .app-wrapper {
+    background: $dark-bg;
+    .header-wrapper  {
+      .header {
+        background: $dark-header-bg;
+        .left {
+          h1 {
+            color: $dark-text2;
+          }
+          p {
+            color: $dark-text;
+          }
+        }
+        .right {
+          span {
+            color: $dark-text;
+          }
+        }
+      }
+    }
+
+    .cards-big-wrapper {
+     
+      .card-big {
+        background: $dark-card-bg;
+        cursor: pointer;
+        &:hover {
+          background: hsl(230, 26%, 27%);
+        }
+        .card-name {
+          .card-user {
+            color: $dark-text;
+          }
+        }
+        .card-followers {
+          .followers-title {
+            color: $dark-text2;
+          }
+          .followers-text {
+            color: $dark-text;
+          }
+        }
+      }
+    }
+
+    .overview-section {
+      .overview-title {
+        color: $dark-text2;
+      }
+      .overview-cards-wrapper {
+        .overview-card {
+          background: $dark-card-bg;
+          cursor: pointer;
+          &:hover {
+            background:hsl(230, 26%, 27%);
+          }
+          .overview-card-top {
+            h3 {
+              color: $dark-text;
+            }
+          }
+
+          .overview-card-bottom {
+            h2 {
+              color: $dark-text2;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .slider:before {
+    background-color: $dark-header-bg;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .cards-big-wrapper {
+    flex-wrap: wrap;
+
+    .card-big {
+      margin-right: 0;
+    }
+  }
+}
